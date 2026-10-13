@@ -53,7 +53,13 @@
         return '<span' + (n > limit ? ' class="over"' : '') + '>' + n + '</span>';
       }
       document.getElementById('result').innerHTML =
-        '공백 포함: ' + num(total) + '자 / 공백 제외: ' + num(noSpace) + '자';
+        '공백 포함: ' + num(total) + '자 / 공백 제외: ' + num(noSpace) + '자' +
+        '<br>단어: ' + countWords(text) + '개';
+    }
+    // 띄어쓰기·줄바꿈 기준으로 단어 수 세기
+    function countWords(text) {
+      var trimmed = text.trim();
+      return trimmed === '' ? 0 : trimmed.split(/\s+/).length;
     }
     // 입력 상자를 글 길이에 맞춰 늘리기
     function fit() {
